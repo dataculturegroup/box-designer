@@ -1,0 +1,31 @@
+/* http://www.colourlovers.com/palette/1311586/autumn_wood */
+:root {
+  --margin-big: 30px;
+  --margin-medium: 15px;
+  --margin-small: 5px;
+  --color-black: #0A0908;
+  --color-dark: #22333b;
+  --color-light: #EAE0D5;
+  background-color: var(--color-black);
+}
+
+body {
+  font-family: 'Gill Sans', Verdana, sans-serif;
+	background-color: var(--color-light);
+	padding-top: var(--margin-big);
+  color: var(--color-dark);
+}
+
+a:active,
+a:focus,
+a:hover,
+a:link,
+a:visited,
+a {
+  color: var(--color-dark);
+	text-decoration: underline;
+}
+
+p {
+    margin-bottom: 5px;
+}

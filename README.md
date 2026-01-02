@@ -3,24 +3,17 @@ Box Designer Web App
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
 
-https://boxdesigner.connectionlab.org/
+https://dataculturegroup.northeastern.edu/boxdesigner/
 
 Dependencies
 ------------
 
-```
-pip install -r requirements.txt
-```
-
-Installation
-------------
-
-Make the `tmp` directory writable by your web user
+Run `npm install` to install all the dev packages you need
 
 Running
 -------
 
-Just run `python server.py` and then try it at http://localhost:5000 in your web browser.
+Just run `npm run dev` and then try it at http://localhost:5001 in your web browser.
 
 If you want to render a box in code, see the `test-render.py` example.
 
@@ -32,18 +25,15 @@ This software is released under the [GNU Affero General Public License](http://w
 Deploying
 ---------
 
-This is built to be deployed easily to a containerized host (ie. Heroku-style).
+This is built to be deployed as a server-less static web-app, for hosting on Github Pages.
 
-Optional environment variables:
-* MATOMO_TRACKER_URL - if you want to use Matomo analytics, fill this in
-* MATOMO_SITE_ID - if you want to use Matomo analytics, fill this in
+To deploy simply run `npm run build` and the runnable HTML output will be in the `docs` folder.
 
 Contributors
 ------------
 
 Box Designer started as a piece of Java desktop software in April of 2001 while Rahul Bhargava was a student at the
-MIT Media Lab's Lifelong Kindergarten Group. Since then, as it evolved into a Rails web app, and then a Python web app,
-others have contributed important pieces:
+MIT Media Lab's Lifelong Kindergarten Group. Since then, as it evolved into a Rails web app, then a Python web app, and now an AI-assisted port to a Svelte static app for server-less hosting. Others have contributed important pieces:
 
 * [@wildsparx](https://github.com/wildsparx) on GitHub contributed the DXF output
 * [@vincentadam87](https://github.com/vincentadam87) on GitHub contributed the "no top" option
