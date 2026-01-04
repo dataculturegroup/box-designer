@@ -279,7 +279,7 @@ select {
 
 button[type='submit'] {
   background-color: var(--color-salmon);
-  font-weight: 600;
+  font-weight: 800;
   color: var(--color-black);
 
   &:hover {
