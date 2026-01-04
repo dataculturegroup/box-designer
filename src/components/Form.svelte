@@ -151,53 +151,53 @@
   </div>
 
   {#if showAdvanced}
-      <div class="advanced-options border-top pt-3">
-      <div class="row mb-3">
-          <label for="notchLength" class="col-sm-4 param-label">Notch Length</label>
-          <div class="col-sm-8">
-          <div class="d-flex align-items-center gap-2">
-              <input type="text" bind:value={notchLength} disabled={autoNotch} id="notchLength" class="form-control" style="width: 120px" aria-label="Notch Length" />
-              <div class="form-check">
-              <input type="checkbox" bind:checked={autoNotch} class="form-check-input" id="autoNotch" />
-              <label class="form-check-label" for="autoNotch">Auto</label>
-              </div>
-          </div>
-          <p class="details">The length of each notch. If you don't care, just leave the auto checkbox as is. A good general rule is two or three times the material depth.</p>
-          </div>
-      </div>
+      <div class="advanced-options">
+        <div class="row mb-3">
+            <label for="notchLength" class="col-sm-4 param-label">Notch Length</label>
+            <div class="col-sm-8">
+            <div class="d-flex align-items-center gap-2">
+                <input type="text" bind:value={notchLength} disabled={autoNotch} id="notchLength" class="form-control" style="width: 120px" aria-label="Notch Length" />
+                <div class="form-check">
+                <input type="checkbox" bind:checked={autoNotch} class="form-check-input" id="autoNotch" />
+                <label class="form-check-label" for="autoNotch">Auto</label>
+                </div>
+            </div>
+            <p class="details">The length of each notch. If you don't care, just leave the auto checkbox as is. A good general rule is two or three times the material depth.</p>
+            </div>
+        </div>
 
-      <div class="row mb-3">
-          <label for="cutWidth" class="col-sm-4 param-label">Cut Width</label>
-          <div class="col-sm-8">
-          <div class="d-flex align-items-center gap-2">
-              <input type="text" bind:value={cutWidth} id="cutWidth" class="form-control" style="width: 120px" aria-label="Cut Width" />
-          </div>
-          <p class="details">The width of material removed by the laser. A value of zero is usually safe but loose-fitting.</p>
-          </div>
-      </div>
+        <div class="row mb-3">
+            <label for="cutWidth" class="col-sm-4 param-label">Cut Width</label>
+            <div class="col-sm-8">
+            <div class="d-flex align-items-center gap-2">
+                <input type="text" bind:value={cutWidth} id="cutWidth" class="form-control" style="width: 120px" aria-label="Cut Width" />
+            </div>
+            <p class="details">The width of material removed by the laser. A value of zero is usually safe but loose-fitting.</p>
+            </div>
+        </div>
 
-      <div class="row mb-3">
-          <label class="col-sm-4 param-label" for="boundingBox">Bounding Box</label>
-          <div class="col-sm-8">
-          <div class="d-flex align-items-center gap-2">
-              <div class="form-check">
-              <input type="checkbox" bind:checked={boundingBox} class="form-check-input" id="boundingBox" />
-              <label class="form-check-label" for="boundingBox">Draw bounding box</label>
-              </div>
-          </div>
-          <p class="details">Having problems with DXF imports? Choose to add a bounding box around the whole box design.</p>
-          </div>
-      </div>
+        <div class="row mb-3">
+            <label class="col-sm-4 param-label" for="boundingBox">Bounding Box</label>
+            <div class="col-sm-8">
+            <div class="d-flex align-items-center gap-2">
+                <div class="form-check">
+                <input type="checkbox" bind:checked={boundingBox} class="form-check-input" id="boundingBox" />
+                <label class="form-check-label" for="boundingBox">Draw bounding box</label>
+                </div>
+            </div>
+            <p class="details">Having problems with DXF imports? Choose to add a bounding box around the whole box design.</p>
+            </div>
+        </div>
 
-      <div class="row mb-3">
-          <label for="includeCover" class="col-sm-4 param-label">Include Cover</label>
-          <div class="col-sm-8">
-          <select bind:value={includeCover} id="includeCover" class="form-select" aria-label="Include Cover">
-              <option value="1">Yes, include a notched box cover</option>
-              <option value="0">No, don't include a cover piece (sides will be flat on top)</option>
-          </select>
-          </div>
-      </div>
+        <div class="row mb-3">
+            <label for="includeCover" class="col-sm-4 param-label">Include Cover</label>
+            <div class="col-sm-8">
+            <select bind:value={includeCover} id="includeCover" class="form-select" aria-label="Include Cover">
+                <option value="1">Yes, include a notched box cover</option>
+                <option value="0">No, don't include a cover piece (sides will be flat on top)</option>
+            </select>
+            </div>
+        </div>
       </div>
     {/if}
 
@@ -219,22 +219,14 @@
 <style>
 label.param-label {
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1rem;
-  color: var(--color-dark);
+  color: var(--color-black);
   margin-top: var(--margin-small);
 }
 
 input[type='text'] {
-  font-weight: bold;
-  color: var(--color-dark);
-}
-
-button[type='submit'] {
-  border: 1px solid var(--color-black);
-  background-color: #5e503f;
-  font-weight: 600;
-  color: var(--color-light);
+  color: var(--color-black);
 }
 
 select {
@@ -250,8 +242,23 @@ select {
   line-height: 1rem;
 }
 
+.advanced-options {
+  padding-top: var(--margin-medium);
+}
+
 button[type='submit'] {
-  box-shadow: rgba(93, 64, 55, 0.4) 0px 4px 6px -1px, rgba(93, 64, 55, 0.4) 0px 2px 4px -1px;
+  background-color: var(--color-salmon);
+  font-weight: 600;
+  color: var(--color-black);
+
+  &:hover {
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.5);
+  }
+  &:active {
+    transform: translateY(0px) translateX(0px);
+    box-shadow: none;
+  }
 }
 
 .details {
@@ -259,8 +266,18 @@ button[type='submit'] {
     margin-top: var(--margin-small);
     margin-left: var(--margin-small);
     font-size: 0.875rem;
-    color: var(--color-dark);
+    color: var(--color-black);
     opacity: 0.75;
     line-height: 1rem;
 }
+
+@media (max-width: 576px) {
+  label.param-label {
+    padding-bottom: var(--margin-small);
+  }
+  .details {
+    margin-left: 0;
+  }
+}
+
 </style>
