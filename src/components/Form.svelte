@@ -239,7 +239,7 @@
             <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
             generating...
             {:else}
-            download
+            DOWNLOAD
             {/if}
         </button>
         </div>
@@ -284,7 +284,7 @@ button[type='submit'] {
 
   &:hover {
     transform: translateY(-1px) translateX(-1px);
-    box-shadow: 0 2px 2px rgba(100, 100, 100, 0.5);
+    box-shadow: 1px 2px 0px rgba(100, 100, 100, 0.8);
   }
   &:active {
     transform: translateY(0px) translateX(0px);

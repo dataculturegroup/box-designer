@@ -20,7 +20,7 @@
   footer {
     background-color: var(--color-green);
     margin: var(--margin-big) 0 0 0;
-    padding: var(--margin-big);
+    padding: var(--margin-big) 0;
   }
 
   p {

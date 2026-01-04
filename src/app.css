@@ -11,7 +11,7 @@
 
   --color-black: #0A0908;
   --color-white: #fff;
-  background-color: var(--color-black);
+  background-color: var(--color-green);
 }
 
 @font-face {
@@ -32,7 +32,6 @@ body {
   font-family: 'Avenir Next Cyr', 'Gill Sans', Verdana, sans-serif;
   font-weight: 200;
 	background-color: var(--color-white);
-	padding-top: var(--margin-big);
   color: var(--color-black);
 }
 

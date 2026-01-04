@@ -29,20 +29,14 @@
 
 <main>
 
+  <Intro />
+    
   <div class="container">
-
-    <div class="row">
-      <div class="col-lg-8">
-        <Intro />
-      </div>
-    </div>
-      
     <div class="row">
       <div class="col-lg-8">
         <Form onGenerate={handleGenerate} />
       </div>
     </div>
-
   </div>
 
   <Footer />
