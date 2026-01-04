@@ -2,6 +2,7 @@
   let { onGenerate } = $props();
   import { type BoxParams } from '../lib/boxGeometry';
   
+  let previousUnits = $state('in');
   let units = $state('in');
   let width = $state('4');
   let depth = $state('5');
@@ -37,10 +38,40 @@
     return null;
   }
 
-  function convertToMm(value: number): number {
-    if (units === 'in') {
+  function handleUnitChange() {
+    width = convertTo(parseFloat(width), previousUnits, units).toString();
+    depth = convertTo(parseFloat(depth), previousUnits, units).toString();
+    height = convertTo(parseFloat(height), previousUnits, units).toString();
+    materialThickness = convertTo(parseFloat(materialThickness), previousUnits, units).toString();
+    cutWidth = convertTo(parseFloat(cutWidth), previousUnits, units).toString();
+    notchLength = convertTo(parseFloat(notchLength),previousUnits, units).toString();
+
+    previousUnits = units;
+  }
+
+  function convertTo(value: number, from: string, to: string): number {
+    if (from === to) {
+      return value;
+    }
+    // Convert from 'from' to mm first
+    let valueInMm: number = convertToMm(value, from);;
+
+    // Now convert from mm to 'to'
+    let converted: number;
+    if (to === 'in') {
+      converted = valueInMm / 25.4;
+    } else if (to === 'cm') {
+      converted = valueInMm / 10.0;
+    } else {
+      converted = valueInMm; // return in mm
+    }
+    return parseFloat(converted.toPrecision(5));
+  }
+
+  function convertToMm(value: number, from: string): number {
+    if (from === 'in') {
       return value * 25.4;
-    } else if (units === 'cm') {
+    } else if (from === 'cm') {
       return value * 10.0;
     }
     return value;
@@ -73,12 +104,12 @@
     }
 
     const params: BoxParams = {
-      width: convertToMm(parseFloat(width)),
-      height: convertToMm(parseFloat(height)),
-      depth: convertToMm(parseFloat(depth)),
-      thickness: convertToMm(parseFloat(materialThickness)),
-      cutWidth: convertToMm(parseFloat(cutWidth) || 0),
-      notchLength: convertToMm(parseFloat(notchLength)),
+      width: convertToMm(parseFloat(width), units),
+      height: convertToMm(parseFloat(height), units),
+      depth: convertToMm(parseFloat(depth), units),
+      thickness: convertToMm(parseFloat(materialThickness), units),
+      cutWidth: convertToMm(parseFloat(cutWidth) || 0, units),
+      notchLength: convertToMm(parseFloat(notchLength), units),
       boundingBox: boundingBox,
       tray: includeCover === '0',
     };
@@ -100,7 +131,7 @@
   <div class="row mb-3">
       <label for="units" class="col-sm-4 param-label">Units</label>
       <div class="col-sm-8">
-      <select bind:value={units} id="units" class="form-select" aria-label="Units">
+      <select bind:value={units} onchange={handleUnitChange} id="units" class="form-select" aria-label="Units">
           <option value="in">inches</option>
           <option value="mm">millimeters</option>
           <option value="cm">centimeters</option>
