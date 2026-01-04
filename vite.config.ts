@@ -6,9 +6,10 @@ import { fileURLToPath } from 'url';
 const file = fileURLToPath(new URL('package.json', import.meta.url));
 const json = readFileSync(file, 'utf8');
 const pkgInfo = JSON.parse(json);
+const URL_PREFIX = "/box-designer/";
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: URL_PREFIX,
   plugins: [svelte()],
   server: {
     host: '0.0.0.0',
@@ -25,6 +26,6 @@ export default defineConfig({
   define: {
     APP_NAME: `"Box Designer"`,
     APP_VERSION: `"${pkgInfo.version}"`,
-    HOMEPAGE: `"https://dataculturegroup.northeastern.edu/boxdesigner/"`
+    HOMEPAGE: `"https://dataculturegroup.northeastern.edu/${URL_PREFIX}/"`
   }
 })
