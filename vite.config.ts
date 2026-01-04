@@ -19,6 +19,9 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5000,
   },
+  build: {
+    outDir: 'docs',
+  },
   define: {
     APP_NAME: `"Box Designer"`,
     APP_VERSION: `"${pkgInfo.version}"`,

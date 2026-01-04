@@ -1,0 +1,39 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Build Svelte App
+        run: |
+          npm install
+          npm run build
+
+      - name: Commit changes in docs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'build for release'
+          file_pattern: 'docs/**'
+
+      - name: Tag as release
+        run: |
+          TAG="${{ github.ref_name }}"
+          RELEASE_TAG="${TAG}-release"
+          git tag "$RELEASE_TAG"
+          git push origin "$RELEASE_TAG"
