@@ -1,0 +1,50 @@
+/* http://www.colourlovers.com/palette/1311586/autumn_wood */
+:root {
+  --margin-big: 30px;
+  --margin-medium: 15px;
+  --margin-small: 5px;
+  
+  --color-blue: #10b0f7;
+  --color-salmon: #ffacb8;
+  --color-mustard: #fec52e;
+  --color-green: #1ec293;
+
+  --color-black: #0A0908;
+  --color-white: #fff;
+  background-color: var(--color-green);
+}
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url('fonts/AvenirNextCyr-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next Cyr';
+  src: url('fonts/AvenirNextCyr-Medium.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Avenir Next Cyr', 'Gill Sans', Verdana, sans-serif;
+  font-weight: 200;
+	background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+a:active,
+a:focus,
+a:hover,
+a:link,
+a:visited,
+a {
+  color: var(--color-dark);
+	text-decoration: underline;
+}
+
+p {
+    margin-bottom: 5px;
+}
