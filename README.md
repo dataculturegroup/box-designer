@@ -3,7 +3,7 @@ Box Designer Web App
 
 A simple web front-end to the box designer command line tool for making designs you can laser-cut.
 
-https://dataculturegroup.northeastern.edu/boxdesigner/
+https://dataculture.northeastern.edu/box-designer/
 
 Dependencies
 ------------

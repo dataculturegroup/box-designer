@@ -26,6 +26,6 @@ export default defineConfig({
   define: {
     APP_NAME: `"Box Designer"`,
     APP_VERSION: `"${pkgInfo.version}"`,
-    HOMEPAGE: `"https://dataculturegroup.northeastern.edu/${URL_PREFIX}/"`
+    HOMEPAGE: `"https://dataculture.northeastern.edu/${URL_PREFIX}/"`
   }
 })
