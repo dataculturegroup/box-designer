@@ -30,6 +30,7 @@ jobs:
         with:
           commit_message: 'build for release'
           file_pattern: 'docs/**'
+          branch: ${{ github.event.repository.default_branch }}
 
       - name: Tag as release
         run: |
